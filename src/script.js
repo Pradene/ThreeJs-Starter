@@ -1,6 +1,9 @@
 import './style.css'
 import * as THREE from 'three'
 import * as dat from 'dat.gui'
+import vertexShader from './shaders/vertex.glsl'
+import fragmentShader from './shaders/fragment.glsl'
+
 
 // Debug
 const gui = new dat.GUI()
@@ -16,8 +19,9 @@ const geometry = new THREE.BoxGeometry(1, 1, 1);
 
 // Materials
 
-const material = new THREE.MeshBasicMaterial({
-    color: 0xff0000
+const material = new THREE.RawShaderMaterial({
+    vertexShader,
+    fragmentShader
 })
 
 // Mesh
